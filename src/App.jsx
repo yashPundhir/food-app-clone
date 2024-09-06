@@ -9,6 +9,7 @@ import MenuPage from './pages/MenuPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import DishesPage from './pages/DishesPage';
+import Cart from './components/Cart';
 
 const App = () => {
   const [showForm, setShowForm] = useState(false);
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/" element={<Hero toggleForm={toggleForm} />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/cart" element={<Cart/>}/>
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/menu/:categoryName" element={<DishesPage />} />
       </Routes>
