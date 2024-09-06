@@ -10,6 +10,7 @@ const Navbar = () => (
         <li><Link to="/" className="hover:text-red-500 font-[700] transition ease-in-out duration-300">Home</Link></li>
         <li><Link to="/menu" className="hover:text-red-500 font-[700] transition ease-in-out duration-300">Menu</Link></li>
         <li><Link to="/about" className="hover:text-red-500 font-[700] transition ease-in-out duration-300">About Us</Link></li>
+        <li><Link to="/cart" className="hover:text-red-500 font-[700] transition ease-in-out duration-300">Cart</Link></li>
         <li><Link to="/contact" className="transition ease-in-out duration-300 hover:text-red-500 font-[700]">Contact Us</Link></li>
       </ul>
       {/* Mobile Menu Button */}
