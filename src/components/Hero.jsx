@@ -40,11 +40,11 @@ const Hero = ({ toggleForm }) => {
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 text-center text-white">
-        <h1 className="text-5xl font-bold animate-pulse">DelishBites</h1>
+        <h1 className="text-5xl font-bold">DelishBites</h1>
         <p className="mt-4 text-xl">Satisfy your cravings in just a few clicks</p>
         <button
           onClick={toggleForm}
-          className="mt-6 px-8 py-3 bg-red-500 hover:bg-red-700 text-white font-bold rounded-lg shadow-md"
+          className="mt-6 px-8 py-3 bg-red-500 hover:bg-white text-white font-bold rounded-lg shadow-xl hover:text-[#ef4444] transition ease-in-out duration-500"
         >
           Order Now
         </button>
