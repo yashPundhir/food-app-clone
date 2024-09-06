@@ -8,10 +8,11 @@ const services = [
 ];
 
 const Body = () => (
-  <section id="services" className="py-16 border-2 border-[black]">
+  <section id="services" className="py-16 bg-gradient-to-t from-[#e6d8d8] to-[#e0a59b]">
+    <h1 className="text-[40px] font-[700] text-center pb-[70px]">What Sets Us Apart?</h1>
     <div className="container mx-auto grid md:grid-cols-3 gap-8">
       {services.map((service, index) => (
-        <div key={index} className="p-8 shadow-md hover:shadow-lg transition duration-300">
+        <div key={index} className="p-8 bg-gradient-to-br from-[#ffffff] to-[#e0a59b] rounded-lg transition duration-300 shadow-[0px_0px_50px_2px_#ef4444]">
           <h2 className="text-2xl font-bold mb-4">{service.title}</h2>
           <p>{service.description}</p>
         </div>
