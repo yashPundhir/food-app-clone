@@ -12,7 +12,7 @@ const DishesPage = () => {
   useEffect(() => {
     const fetchDishes = async () => {
       try {
-        response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`);
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`);
         if (!response.ok) throw new Error('Failed to fetch dishes');
 
         const data = await response.json();
