@@ -44,6 +44,28 @@ const Hero = ({ toggleForm }) => {
 		return () => clearInterval(interval); // Cleanup the interval on unmount
 	}, []);
 
+  // return (
+  //   <section className="relative h-[465px] flex items-center justify-center"
+  //     style={{
+  //       backgroundImage: `url(${images[currentImageIndex]})`,
+  //       backgroundSize: 'cover',
+  //       backgroundPosition: 'center',
+  //       transition: 'background-image 1s ease-in-out',
+  //     }}
+  //   >
+  //     <div className="absolute inset-0 bg-black opacity-50"></div>
+  //     <div className="relative z-10 text-center text-white">
+  //       <h1 className="text-5xl font-bold">DelishBites</h1>
+  //       <p className="mt-4 text-xl">Satisfy your cravings in just a few clicks</p>
+  //       <button
+  //         onClick={toggleForm}
+  //         className="mt-6 px-8 py-3 bg-red-500 hover:bg-white text-white font-bold rounded-lg shadow-xl hover:text-[#ef4444] transition ease-in-out duration-500"
+  //       >
+  //         Order Now
+  //       </button>
+  //     </div>
+  //   </section>
+  // );
 	return (
 		<>
 			<section

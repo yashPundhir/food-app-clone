@@ -19,7 +19,7 @@ const MenuPage = () => {
 				}
 
 				const data = await response.json();
-				console.log(data);
+
 				setCategories(data.categories);
 			} catch (error) {
 				setError(error.message);
@@ -39,6 +39,30 @@ const MenuPage = () => {
 			</div>
 		);
 	}
+
+	// return (
+	//   <section id="menu" className="py-16 bg-gradient-to-b from-[#e6d8d8] to-[#e0a59b]">
+	//     <h1 className="text-[40px] font-[700] text-center pb-[50px]">Our Menu</h1>
+	//     <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+	//     {categories.map((category) => {
+	//         // Truncate description if longer than 30 characters
+	//         const truncatedDescription = category.strCategoryDescription.length > 30
+	//           ? category.strCategoryDescription.substring(0, 34) + '...'
+	//           : category.strCategoryDescription;
+
+	//         return (
+	//           <Link key={category.idCategory} to={`/menu/${category.strCategory.toLowerCase().replace(/\s+/g, '')}`}>
+	//             <Card
+	//               name={category.strCategory}
+	//               description={truncatedDescription}
+	//               image={category.strCategoryThumb}
+	//             />
+	//           </Link>
+	//         );
+	//       })}
+	//     </div>
+	//   </section>
+	// );
 
 	return (
 		<section id="menu" className="py-16 bg-white">
