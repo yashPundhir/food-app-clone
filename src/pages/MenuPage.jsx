@@ -19,7 +19,7 @@ const MenuPage = () => {
 				}
 
 				const data = await response.json();
-				console.log(data);
+
 				setCategories(data.categories);
 			} catch (error) {
 				setError(error.message);
