@@ -16,6 +16,8 @@ import DishDetailPage from "./pages/DishDetailPage";
 const App = () => {
 	const [showForm, setShowForm] = useState(false);
 
+	const [cartItems, setcartItems] = useState([]);
+
 	const toggleForm = () => setShowForm(!showForm);
 
 	return (
@@ -24,11 +26,14 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<Hero toggleForm={toggleForm} />} />
 				<Route path="/cuisineTypes" element={<MenuPage />} />
-				<Route path="/cart" element={<Cart />} />
+				<Route path="/cart" element={<Cart cartItems={cartItems} />} />
 				<Route path="/:categoryName/:dishId" element={<DishDetailPage />} />
 				{/* <Route path="/about" element={<AboutPage />} />
 				<Route path="/contact" element={<ContactPage />} /> */}
-				<Route path="/menu/:categoryName" element={<DishesPage />} />
+				<Route
+					path="/menu/:categoryName"
+					element={<DishesPage setcartItems={setcartItems} />}
+				/>
 			</Routes>
 
 			{showForm && (

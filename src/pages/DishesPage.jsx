@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import Card from "../components/Card";
 
-const DishesPage = () => {
+const DishesPage = ({ setcartItems }) => {
 	const { categoryName } = useParams();
 	const [dishes, setDishes] = useState([]);
 	const [error, setError] = useState(null);
@@ -22,10 +24,12 @@ const DishesPage = () => {
 				if (!response.ok) throw new Error("Failed to fetch dishes");
 
 				const data = await response.json();
+				console.log(data);
 
 				const dishesWithPrice = data.meals.map((dish) => ({
 					...dish,
-					price: `Rs. ${getRandomPrice()}`,
+					price: getRandomPrice(),
+					// price: `Rs. ${getRandomPrice()}`,
 				}));
 
 				setDishes(dishesWithPrice);
@@ -74,14 +78,22 @@ const DishesPage = () => {
 				</div>
 			) : (
 				<div className="max-w-7xl mx-auto px-10">
+					<Toaster position="top-center" reverseOrder={false} />
 					<h1 className="text-3xl font-bold text-center mb-8 capitalize">
 						{categoryName} Dishes
 					</h1>
 					<div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{dishes.map((dish) => (
-							<Link key={dish.idMeal} to={`/${categoryName}/${dish.idMeal}`}>
-								<Card name={dish.strMeal} image={dish.strMealThumb} />
-							</Link>
+							// <Link key={dish.idMeal} to={`/${categoryName}/${dish.idMeal}`}>
+							<Card
+								dish={dish}
+								key={dish.idMeal}
+								name={dish.strMeal}
+								image={dish.strMealThumb}
+								cartBtnVisible={true}
+								setcartItems={setcartItems}
+							/>
+							// </Link>
 						))}
 					</div>
 				</div>

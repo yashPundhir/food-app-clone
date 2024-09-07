@@ -1,6 +1,18 @@
+import { useState, useEffect } from "react";
+
 import tick from "../assets/tick.svg";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ cartItems }) => {
+	const [cartTotal, setCartTotal] = useState(0);
+
+	useEffect(() => {
+		let sum = 0;
+		for (let i = 0; i < cartItems.length; i++) {
+			sum = sum + cartItems[i].price;
+		}
+		setCartTotal(sum);
+	}, [cartItems]);
+
 	const handleCheckoutBtnClick = () => {
 		setTimeout(() => {
 			document.getElementById("confirmModal").showModal();
@@ -17,15 +29,16 @@ const CheckoutForm = () => {
 			<div className="w-full h-[2px] bg-gray-400 my-3"></div>
 			<div className="flex flex-row justify-between items-center gap-5 mt-5">
 				<span className="text-[18px] font-semibold">ITEMS:</span>
-				<span className="text-[18px] font-semibold">Count</span>
+				<span className="text-[18px] font-semibold">{cartItems.length}</span>
 			</div>
 			<div className="flex flex-row justify-between items-center gap-5 mt-5">
 				<span className="text-[18px] font-semibold">TOTAL COST:</span>
-				<span className="text-[18px] font-semibold">Total</span>
+				<span className="text-[18px] font-semibold">{`Rs. ${cartTotal}`}</span>
 			</div>
 			<button
 				onClick={handleCheckoutBtnClick}
 				className="w-full bg-red-500 rounded-lg px-5 py-2 mt-10 text-white font-semibold"
+				disabled={cartItems.length === 0}
 			>
 				Checkout
 			</button>

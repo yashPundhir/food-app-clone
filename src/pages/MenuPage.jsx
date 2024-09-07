@@ -89,6 +89,7 @@ const MenuPage = () => {
 									name={category.strCategory}
 									description={category.strCategoryDescription.slice(0, 100)}
 									image={category.strCategoryThumb}
+									cartBtnVisible={false}
 								/>
 							</Link>
 						))}
