@@ -152,7 +152,7 @@ const CTAForm = ({ toggleForm }) => {
 							Thank You For Contacting Us!!
 						</h3>
 						<p className="bg-transparent text-center font-semibold text-[18px]">
-							Our Customer Executive will react out to you shortly.
+							Our Customer Executive will reach out to you shortly.
 						</p>
 					</div>
 					<div className="modal-action bg-transparent">

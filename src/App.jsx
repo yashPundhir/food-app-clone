@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import Navbar from "./components/Navbar";
+import Cart from "./components/Cart";
 import Hero from "./components/Hero";
 import CTAForm from "./components/CTAForm";
 import MenuPage from "./pages/MenuPage";
@@ -10,9 +11,12 @@ import MenuPage from "./pages/MenuPage";
 // import ContactPage from "./pages/ContactPage";
 import DishesPage from "./pages/DishesPage";
 import Footer from "./components/Footer";
+import DishDetailPage from "./pages/DishDetailPage";
 
 const App = () => {
 	const [showForm, setShowForm] = useState(false);
+
+	const [cartItems, setcartItems] = useState([]);
 
 	const toggleForm = () => setShowForm(!showForm);
 
@@ -22,9 +26,14 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<Hero toggleForm={toggleForm} />} />
 				<Route path="/cuisineTypes" element={<MenuPage />} />
+				<Route path="/cart" element={<Cart cartItems={cartItems} />} />
+				<Route path="/:categoryName/:dishId" element={<DishDetailPage />} />
 				{/* <Route path="/about" element={<AboutPage />} />
 				<Route path="/contact" element={<ContactPage />} /> */}
-				<Route path="/menu/:categoryName" element={<DishesPage />} />
+				<Route
+					path="/menu/:categoryName"
+					element={<DishesPage setcartItems={setcartItems} />}
+				/>
 			</Routes>
 
 			{showForm && (
